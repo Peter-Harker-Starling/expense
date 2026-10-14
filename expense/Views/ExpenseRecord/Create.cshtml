@@ -1,0 +1,58 @@
+﻿@model expense.Models.ExpenseRecord
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<div class="text-center">
+    <div class="page-actions">
+        <form id="uploadForm" asp-action="Analyze" method="post" class="d-flex gap-2">
+            <input type="text" name="input" placeholder="AI Can Help You!" class="form-control" />
+            <button id="uploadBtn" type="submit" class="btn btn-primary" style="width: 100px;">GO</button>
+        </form>
+    </div>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="error-alert">
+            <div class="error-alert-title">
+                ⚠️ 圖片解析失敗
+            </div>
+            <div class="error-alert-message">
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <div>@error.ErrorMessage</div>
+                }
+            </div>
+        </div>
+    }
+
+    <form asp-action="Save" method="post" class="create-card">
+        <div>
+            <label>Item</label>
+            <input type="text" name="Item" class="form-control" value="@(Model?.Item ?? "")" />
+        </div>
+        <div>
+            <label>Date</label>
+            <input type="date" name="Date" class="form-control" value="@(Model?.Date.ToString("yyyy-MM-dd") ?? "")" />
+        </div>
+        <div>
+            <label>Amount</label>
+            <input type="number" name="Amount" class="form-control" value="@(Model?.Amount.ToString() ?? "")" />
+        </div>
+      
+        <button type="submit" class="btn btn-success">Save</button>
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Index", "Home")'">Cancel</button>
+    </form>
+
+</div>
+
+<script>
+    document.getElementById('uploadForm').addEventListener('submit', function() {
+        const btn = document.getElementById('uploadBtn'); 
+        btn.innerText = 'Analysing...';
+        btn.disabled = true;
+    });
+</script>

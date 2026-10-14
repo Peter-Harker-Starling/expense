@@ -1,0 +1,43 @@
+﻿@model IEnumerable<expense.Models.ExpenseRecord>
+
+@{
+    ViewData["Title"] = "Record";
+    var emptyMessageStyle = Model.Any() ? "display:none;" : "";
+}
+
+<h2>Record</h2>
+
+<div class="page-actions">
+    <form asp-controller="Home" asp-action="Index" method="get" class="d-flex gap-2">
+        <input type="month" name="month" value="@ViewBag.SelectedMonth" class="form-control" onchange="this.form.submit()" />
+        <a asp-controller="ExpenseRecord" asp-action="Create" class="btn btn-success">Create</a>
+    </form>
+</div>
+
+@Html.AntiForgeryToken()
+
+<div id="recordList" class="record-list">
+    <p id="emptyMessage" class="text-center text-muted" style="@emptyMessageStyle">Currently no expense records.</p>
+
+    @foreach (var m in Model)
+    {
+        <div class="record" id="record-@m.Id">
+            <div class="record-info">
+                <div class="record-item">@m.Item</div>
+                <div class="record-date">@m.Date.ToString("yyyy-MM-dd")</div>
+            </div>
+            <div class="record-actions">
+                <div class="record-amount">💰@m.Amount</div>
+                <a asp-action="Edit" asp-route-id="@m.Id" class="btn btn-warning btn-sm">Edit</a>
+                <button type="button" class="btn btn-danger btn-sm" onclick="deleteRecord(@m.Id, this)">Delete</button>
+            </div>
+        </div>
+    }
+</div>
+<div class="totalAmount">
+    <strong>Total : @ViewBag.TotalAmount</strong>
+</div>
+
+@section Scripts {
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}

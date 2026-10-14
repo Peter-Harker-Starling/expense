@@ -1,0 +1,166 @@
+/* 全域設定 */
+body {
+    background-color: #f5f6f8;
+    font-family: "Segoe UI", "Microsoft JhengHei", sans-serif;
+}
+
+h2 {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #0282c7 !important;
+}
+
+.navbar-brand,
+.nav-link {
+    font-weight: 600;
+    color: #f5ede0 !important;
+}
+
+header .nav-link:hover {
+    color: #c1c1c1 !important;
+}
+
+.navbar-toggler {
+    border-color: #e0d5c5 !important;
+}
+
+.navbar-toggler-icon {
+    filter: brightness(0) invert(1); 
+}
+
+/* Index */
+.page-actions {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.record-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.record {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.totalAmount {
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.08);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.record-item {
+    font-weight: bold;
+}
+
+.record-date {
+    font-size: 0.875rem;
+    color: gray;
+}
+
+.record-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.record-amount {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* Create */
+.create-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+    .create-card div {
+        margin-bottom: 14px;
+    }
+
+    .create-card label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: #444;
+        font-size: 0.9rem;
+    }
+
+/* 錯誤訊息 */
+.error-alert {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 16px;
+    border-radius: 10px;
+    background-color: #f8d7da;
+    color: #842029;
+    text-align: left;
+}
+
+.error-alert-title {
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.error-alert-message {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Auth */
+.auth-wrapper {
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-card {
+    width: 420px;
+    max-width: 100%;
+    background: #fff;
+    border-radius: 14px;
+    padding: 36px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+    .auth-header h1 {
+        margin: 0;
+        font-size: 2rem;
+    }
+
+    .auth-header p {
+        margin: 8px 0 0;
+        color: #888;
+        font-size: 0.95rem;
+    }

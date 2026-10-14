@@ -1,0 +1,34 @@
+﻿@model expense.Models.ExpenseRecord
+
+@{
+        ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Edit" method="post" class="create-card">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label>Item</label>
+        <input asp-for="Item" type="text" class="form-control" />
+        <span asp-validation-for="Item" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Date</label>
+        <input asp-for="Date" type="date" class="form-control" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+    <div>
+        <label>Amount</label>
+        <input asp-for="Amount" type="number" class="form-control" />
+        <span asp-validation-for="Amount" class="text-danger"></span>
+    </div>
+
+    <div class="mt-4"></div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Index", "Home")'">Cancel</button>
+</form>
