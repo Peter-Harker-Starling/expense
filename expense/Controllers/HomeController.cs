@@ -124,7 +124,7 @@ namespace expense.Controllers
             _context.ExpenseRecords.Remove(expenses);
             await _context.SaveChangesAsync();
 
-            return Json(new { success = true });
+            return RedirectToAction("Index", "Home");
         }
     }
 }
