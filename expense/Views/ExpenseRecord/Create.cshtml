@@ -7,12 +7,10 @@
 <h2>Create</h2>
 
 <div class="text-center">
-    <div class="page-actions">
-        <form id="uploadForm" asp-action="Analyze" method="post" class="d-flex gap-2">
-            <input type="text" name="input" placeholder="AI Can Help You!" class="form-control" />
-            <button id="uploadBtn" type="submit" class="btn btn-primary" style="width: 100px;">GO</button>
-        </form>
-    </div>
+    <form id="uploadForm" asp-action="Analyze" method="post" class="create-page-actions">
+        <input type="text" name="input" placeholder="AI Can Help You!" class="form-control" />
+        <button id="uploadBtn" type="submit" class="btn btn-primary">GO</button>
+    </form>
 
     @if (!ViewData.ModelState.IsValid)
     {
