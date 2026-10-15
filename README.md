@@ -1,6 +1,6 @@
 # Lazy Expense Tracker
 
-結合 Gemini API 解析自然語言的的懶人記帳系統，使用**ASP.NET Core MVC**開發。 
+結合 Gemini API 解析自然語言的的懶人記帳系統。 
 ---
 
 ## Demo
