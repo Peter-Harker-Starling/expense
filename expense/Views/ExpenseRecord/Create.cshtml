@@ -17,9 +17,7 @@
     @if (!ViewData.ModelState.IsValid)
     {
         <div class="error-alert">
-            <div class="error-alert-title">
-                ⚠️ 解析失敗
-            </div>
+            <div class="error-alert-title">⚠️ 解析失敗</div>
             <div class="error-alert-message">
                 @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
                 {
