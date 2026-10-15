@@ -1,6 +1,5 @@
 # Lazy Expense Tracker
 
-結合 Gemini API 解析自然語言的的懶人記帳系統。 
 ---
 
 ## Demo
