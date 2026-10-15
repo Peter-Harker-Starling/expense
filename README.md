@@ -1,7 +1,5 @@
 # Lazy Expense Tracker
 
----
-
 ## Demo
 
 👉 [Live Demo][https://expense-0uft.onrender.com]
