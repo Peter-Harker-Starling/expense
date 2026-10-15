@@ -1,4 +1,4 @@
-# Expense-PocketLog
+# PocketLog
 
 使用 ASP.NET Core MVC 開發，把簡單、明確的 UI 與 LLM API 支出解析功能結合，讓日常開支記錄變得輕鬆。
 
