@@ -6,8 +6,14 @@
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
-    <li class="nav-item">
+    @* <li class="nav-item">
         <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/ChangePassword" title="Manage">Hello @User.Identity?.Name!</a>
+    </li> *@
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Expense</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-controller="ExpenseRecord" asp-action="Create">Create</a>
     </li>
     <li class="nav-item">
         <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
@@ -17,9 +23,9 @@
 }
 else
 {
-    <li class="nav-item">
+    @* <li class="nav-item">
         <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
+    </li> *@
     <li class="nav-item">
         <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
     </li>

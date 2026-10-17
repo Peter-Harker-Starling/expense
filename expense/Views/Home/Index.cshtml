@@ -13,6 +13,11 @@
         </form>
     </div>
 
+    <div class="view-toggle">
+        <button type="button" id="btnList" class="toggle-btn active" onclick="showList()">Expense</button>
+        <button type="button" id="btnCategory" class="toggle-btn" onclick="showCategory()">Category</button>
+    </div>
+
     <div id="recordList" class="record-list">
         <p id="emptyMessage" class="text-center text-muted" style="@emptyMessageStyle">Currently no expense records.</p>
 
@@ -21,7 +26,10 @@
             <div class="record" id="record-@m.Id">
                 <div class="record-info">
                     <div class="record-item">@m.Item</div>
-                    <div class="record-date">@m.Date.ToString("yyyy-MM-dd")</div>
+                    <div class="record-meta">
+                        <div class="record-date">@m.Date.ToString("yyyy-MM-dd")</div>
+                        <div class="record-category">@m.Category</div>
+                    </div>
                 </div>
                 <div class="record-actions">
                     <div class="record-amount">💰@m.Amount</div>
@@ -30,6 +38,16 @@
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('ready to delete?');">Delete</button>
                     </form>
                 </div>
+            </div>
+        }
+    </div>
+
+    <div id="categoryList" class="record-list" style="display: none;">
+        @foreach (var c in (Dictionary<string, decimal>)ViewBag.CategoryTotals)
+        {
+            <div class="record">
+                <div class="record-item">@c.Key</div>
+                <div class="record-amount">💰@c.Value</div>
             </div>
         }
     </div>
@@ -44,3 +62,18 @@
     </div>
 </div>
     
+<script>
+    function showList() {
+        document.getElementById('recordList').style.display = '';
+        document.getElementById('categoryList').style.display = 'none';
+        document.getElementById('btnList').classList.add('active');
+        document.getElementById('btnCategory').classList.remove('active');
+    }
+
+    function showCategory() {
+        document.getElementById('recordList').style.display = 'none';
+        document.getElementById('categoryList').style.display = '';
+        document.getElementById('btnList').classList.remove('active');
+        document.getElementById('btnCategory').classList.add('active');
+    }
+</script>

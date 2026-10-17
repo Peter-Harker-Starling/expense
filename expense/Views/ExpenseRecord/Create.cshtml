@@ -38,6 +38,16 @@
             <label>Amount</label>
             <input type="number" name="Amount" class="form-control" value="@(Model?.Amount.ToString() ?? "")" />
         </div>
+        <div>
+            <label>Category</label>
+            <select name="Category" class="form-control">
+                <option value="">Select Category</option>
+                <option value="餐飲" selected="@(Model?.Category == "餐飲")">餐飲</option>
+                <option value="交通" selected="@(Model?.Category == "交通")">交通</option>
+                <option value="娛樂" selected="@(Model?.Category == "娛樂")">娛樂</option>
+                <option value="生活" selected="@(Model?.Category == "生活")">生活</option>    
+            </select>
+        </div>
       
         <button type="submit" class="btn btn-success">Save</button>
         <button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Index", "Home")'">Cancel</button>

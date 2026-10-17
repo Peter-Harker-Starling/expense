@@ -19,7 +19,9 @@ namespace expense.Services
             var prompt = $@"
             今天是 {DateTime.Now:yyyy-MM-dd}。
             請解析這句話：""{input}""
-            並只輸出這個 JSON 格式：{{ ""Item"": ""品名"", ""Date"": ""YYYY-MM-DD"", ""Amount"": 數字 }}
+            並只輸出這個 JSON 格式：{{ ""Item"": ""品名"", ""Date"": ""YYYY-MM-DD"", ""Amount"": 數字, ""Category"": ""類別"" }}
+            
+            Category 的類別有限制，請從以下選項中選擇：餐飲、交通、娛樂、生活。
             禁止輸出 Markdown 格式。
             ";
 

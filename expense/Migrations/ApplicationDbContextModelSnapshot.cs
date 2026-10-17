@@ -233,6 +233,10 @@ namespace expense.Migrations
                     b.Property<decimal>("Amount")
                         .HasColumnType("numeric");
 
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<DateOnly>("Date")
                         .HasColumnType("date");
 

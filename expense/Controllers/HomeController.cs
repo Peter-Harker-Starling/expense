@@ -51,6 +51,11 @@ namespace expense.Controllers
 
             ViewBag.SelectedMonth = selectedDate.ToString("yyyy-MM");
             ViewBag.TotalAmount = expensesInMonth.Sum(e => e.Amount);
+
+            ViewBag.CategoryTotals = expensesInMonth
+                .GroupBy(e => e.Category)
+                .ToDictionary(g => g.Key, g => g.Sum(e => e.Amount));
+
             return View(expensesInMonth);
         }
 
@@ -99,6 +104,7 @@ namespace expense.Controllers
             expenses.Item = expense.Item;
             expenses.Date = expense.Date;
             expenses.Amount = expense.Amount;
+            expenses.Category = expense.Category;
 
             await _context.SaveChangesAsync();
             return RedirectToAction("Index", "Home");

@@ -15,6 +15,13 @@ namespace expense.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ExpenseRecordService _expenseRecordService;
+        private static readonly string[] AllowedCategory = { "餐飲", "交通", "娛樂", "生活" };
+
+        private static bool IsValidCategory(string? category)
+        {
+            return !string.IsNullOrWhiteSpace(category)
+                && AllowedCategory.Contains(category, StringComparer.Ordinal);
+        }
 
         public ExpenseRecordController(ApplicationDbContext context, UserManager<ApplicationUser> userManager, ExpenseRecordService expenseRecordService)
         {
@@ -41,6 +48,11 @@ namespace expense.Controllers
             try
             {
                 ExpenseRecord record = await _expenseRecordService.AnalyzeExpenseRecord(input);
+
+                if (!IsValidCategory(record.Category))
+                {
+                    ModelState.AddModelError(nameof(record.Category), "分類得到的結果無效，請重新選擇分類");
+                }
                 return View("Create", record);
             }
             catch (Exception)
@@ -53,6 +65,11 @@ namespace expense.Controllers
         [HttpPost]
         public async Task<IActionResult> Save(ExpenseRecord record)
         {
+            if (!IsValidCategory(record.Category))
+            {
+                ModelState.AddModelError(nameof(record.Category), "分類得到的結果無效，請重新選擇分類");
+            }
+
             if (!ModelState.IsValid)
             {
                 return View("Create", record);
@@ -63,7 +80,7 @@ namespace expense.Controllers
             // 如果 user 為 null，表示使用者未登入，回傳 401 Unauthorizeds
             if (user == null)
             {
-                return Unauthorized();
+                return Challenge();
             }
             record.UserId = user.Id;
             record.User = user;

@@ -14,6 +14,8 @@ namespace expense.Models
         public DateOnly Date { get; set; }
         [Required]
         public decimal Amount { get; set; }
+        [Required]
+        public string Category { get; set; } = null!;
         [ValidateNever]
         public string UserId { get; set; } = null!;
         [ValidateNever]
