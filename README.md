@@ -8,8 +8,9 @@
 ---
 
 ## 螢幕截圖
-![Expense](expense/ScreenShots/Index.png)
-![Create](expense/ScreenShots/Create.png)
+![Record](expense/ScreenShots/record.png)
+![Category](expense/ScreenShots/category.png)
+![Create](expense/ScreenShots/create.png)
 
 ## 部署事項
 
@@ -20,13 +21,14 @@
 ---
 
 ## 功能
-- 🔐 使用者註冊 / 登入
+- 🔐 使用者登入
 - 🤖 使用 Gemini API 解析自然語言記帳
 - ✏️ 編輯記帳紀錄
 - 🗑️ 刪除記帳紀錄
 - 📊 Expense 頁面查看記帳紀錄
 - 📅 月份選擇器查看過往記帳紀錄
-- 📆 計算當月記帳總金額
+- 🗂️ 計算當月分類總金額
+- 💰 計算當月所有開支總金額
 
 ---
 

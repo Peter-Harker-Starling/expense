@@ -1,10 +1,10 @@
 ﻿@model expense.Models.ExpenseRecord
 
 @{
-        ViewData["Title"] = "Edit";
+        ViewData["Title"] = "編輯";
 }
 
-<h2>Edit</h2>
+<h2>編輯</h2>
 
 <div asp-validation-summary="All" class="text-danger"></div>
 
@@ -12,24 +12,24 @@
     <input type="hidden" asp-for="Id" />
 
     <div>
-        <label>Item</label>
+        <label>品名</label>
         <input asp-for="Item" type="text" class="form-control" />
         <span asp-validation-for="Item" class="text-danger"></span>
     </div>
     <div>
-        <label>Date</label>
+        <label>日期</label>
         <input asp-for="Date" type="date" class="form-control" />
         <span asp-validation-for="Date" class="text-danger"></span>
     </div>
     <div>
-        <label>Amount</label>
+        <label>金額</label>
         <input asp-for="Amount" type="number" class="form-control" />
         <span asp-validation-for="Amount" class="text-danger"></span>
     </div>
     <div>
-        <label>Category</label>
+        <label>分類</label>
         <select asp-for="Category" class="form-control">
-            <option value="">Select Category</option>
+            <option value="">選擇分類</option>
             <option value="餐飲">餐飲</option>
             <option value="交通">交通</option>
             <option value="娛樂">娛樂</option>
@@ -40,6 +40,24 @@
 
     <div class="mt-4"></div>
 
-    <button type="submit" class="btn btn-primary">Save</button>
-    <button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Index", "Home")'">Cancel</button>
+    <button type="submit" class="btn btn-primary">儲存</button>
+    <button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Index", "Home")'">取消</button>
 </form>
+
+<style>
+    .create-card {
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: left;
+    }
+
+        .create-card div {
+            margin-bottom: 14px;
+        }
+
+        .create-card label {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+</style>
