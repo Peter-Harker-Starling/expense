@@ -41,6 +41,9 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+// 檢查網頁狀態路徑
+app.MapGet("/health", () => Results.Ok("OK")).AllowAnonymous();
 app.MapRazorPages();
 
 app.Run();
