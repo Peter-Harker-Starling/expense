@@ -10,7 +10,7 @@
 ## 螢幕截圖
 ![Record](expense/ScreenShots/record.png)
 ![Category](expense/ScreenShots/category.png)
-![Create](expense/ScreenShots/create.png)
+![Create](expense/ScreenShots/Create.png)
 
 ## 部署事項
 
